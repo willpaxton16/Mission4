@@ -12,6 +12,7 @@ namespace Mission4.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
+        [Required]
         public string Title { get; set; }
         [Required]
         public int Year { get; set; }
@@ -21,7 +22,6 @@ namespace Mission4.Models
         public string Rating { get; set; }
         public Boolean Edited { get; set; }
         public string LentTo { get; set; }
-        [Range(0,25)]
         public string Notes { get; set; }
 
         public int CategoryId { get; set; }

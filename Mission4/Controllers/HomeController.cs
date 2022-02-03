@@ -39,28 +39,29 @@ namespace Mission4.Controllers
             var application = _listContext.Responses.ToList();
             return View(application);
         }
-        //[HttpPost]
-        //public IActionResult MovieList(UpdateList DateResponse)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _listContext.Add(DateResponse);
-        //        _listContext.SaveChanges();
-        //        return View("Confirmation", DateResponse);
-        //    }
-        //    else
-        //    {
-        //        ViewBag.Majors = _listContext.Categories.ToList();
-        //        return View("MovieList");
-        //    }
+        [HttpGet]
+        public IActionResult MovieUpdate()
+        {
+            ViewBag.Categories = _listContext.Categories.ToList();
+            return View();
+        }
 
-        
-        //public IActionResult MovieUpdate(UpdateList NewMovie)
-        //{
-        //    _listContext.Add(NewMovie);
-        //    _listContext.SaveChanges();
-        //    return View("Confirmation");
-        //}
+        [HttpPost]
+        public IActionResult MovieUpdate(UpdateList DateResponse)
+        {
+            if (ModelState.IsValid)
+            {
+                _listContext.Add(DateResponse);
+                _listContext.SaveChanges();
+                return View("Confirmation", DateResponse);
+            }
+            else
+            {
+                ViewBag.Categories = _listContext.Categories.ToList();
+                return View();
+            }
+
+        }
         [HttpGet]
         public IActionResult MovieEdit(int movieId)
         {
