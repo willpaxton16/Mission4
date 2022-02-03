@@ -9,10 +9,9 @@ namespace Mission4.Models
 {
     public class UpdateList
     {
-        [Required]
-        public string Category { get; set; }
         [Key]
         [Required]
+        public int MovieId { get; set; }
         public string Title { get; set; }
         [Required]
         public int Year { get; set; }
@@ -25,6 +24,9 @@ namespace Mission4.Models
         [Range(0,25)]
         public string Notes { get; set; }
 
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
-}
+
+    }
 }
